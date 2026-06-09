@@ -15,7 +15,7 @@ a branded, shareable builder profile:
 ![A paxel-local builder profile, generated 100% on-device](docs/example-poster.png)
 
 ```bash
-git clone https://github.com/Photobombastic/paxel-local
+git clone https://github.com/kaurifund/paxel
 cd paxel-local && python3 paxel.py     # reads your local transcripts; opens your profile
 ```
 
@@ -181,21 +181,6 @@ brute-forcing.
   derived from [Garry Tan's gstack](https://github.com/garrytan/gstack) (see "How scores are graded"
   above), but the *counts* are measured and reproducible; the scores are an opinion laid on top.
 
-## Known limitations — PRs welcome 🐦
+## forked from
 
-Honest about what it can't see. If you can close one of these, open a PR:
-
-- **`sed -i` / runtime-generated files** — a command like `python build.py` writes files whose
-  content never appears in the transcript, so the shell-authored estimate misses it. Git churn
-  catches it *if* it was committed in a repo still on disk.
-- **`~/.claude/history.jsonl`** (a separate flat prompt log) isn't parsed yet.
-- **Cursor** (SQLite `state.vscdb` blobs) and **opencode** (KV store) are detected but not yet
-  parsed — reverse-engineering either into the common event shape is a great first PR.
-- **Codex tool churn** from `apply_patch` counts raw patch lines (diff markers included), so it
-  over-estimates; the gold-standard git churn is unaffected.
-- **Score grounding** — axis *criteria* are derived from gstack, but the **archetype** picker
-  (`pick_archetype`) is still a hand-rolled rule set, and the gstack→metric mappings are a first
-  pass. Sharper targets, or mapping archetypes onto gstack's roles (CEO / Eng Manager / QA Lead / …),
-  would be great contributions.
-
-Issues and pull requests welcome.
+> https://github.com/Photobombastic/paxel-local
